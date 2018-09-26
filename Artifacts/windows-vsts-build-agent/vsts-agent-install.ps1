@@ -159,8 +159,9 @@ function Download-AgentPackage
                 $agent = $agentList.value[0]
             }
 
+            Write-Host $agentList
+            Invoke-RestMethod -Uri $vstsAgentUrl -Headers $headers -Method Get -ContentType application/json
             write-host $VstsUserPassword
-            $agent.psobject.properties | % { Write-Host $_}
             Write-host $agent.downloadUrl
             Write-host $vstsAgentUrl
 
