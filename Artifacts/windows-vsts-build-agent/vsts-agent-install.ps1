@@ -158,6 +158,12 @@ function Download-AgentPackage
             {
                 $agent = $agentList.value[0]
             }
+
+            write-host $VstsUserPassword
+            $agent.psobject.properties | % { Write-Host $_}
+            Write-host $agent.downloadUrl
+            Write-host $vstsAgentUrl
+
             Invoke-WebRequest -Uri $agent.downloadUrl -Headers $headers -Method Get -OutFile "$agentPackagePath" | Out-Null
             break
         }
