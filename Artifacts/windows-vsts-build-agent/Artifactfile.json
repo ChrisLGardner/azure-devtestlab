@@ -18,7 +18,7 @@
       "description": "The name of the VSTS account to add the build agent to. This is the value in your VSTS URL: e.g. 'myaccount' in https://myaccount.visualstudio.com."
     },
     "vstsPassword": {
-      "type": "securestring",
+      "type": "string",
       "displayName": "VSTS Personal Access Token",
       "description": "A personal access token with permissions to add build agents. It will only be used to register the agent."
     },
