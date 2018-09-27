@@ -157,12 +157,6 @@ function Download-AgentPackage
                 $agent = $agentList.value[0]
             }
 
-            Write-Host $agentList
-            Invoke-RestMethod -Uri $vstsAgentUrl -Headers $headers -Method Get -ContentType application/json
-            write-host $VstsUserPassword
-            Write-host $agent.downloadUrl
-            Write-host $vstsAgentUrl
-
             Invoke-WebRequest -Uri $agent.downloadUrl -Headers $headers -Method Get -OutFile "$agentPackagePath" | Out-Null
             break
         }
