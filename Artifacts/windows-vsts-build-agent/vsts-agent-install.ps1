@@ -133,10 +133,8 @@ function Download-AgentPackage
     )
 
     # Create a temporary directory where to download from VSTS the agent package (agent.zip).
-    $agentTempFolderName = Join-Path $env:temp ([System.IO.Path]::GetRandomFileName())
-    New-Item -ItemType Directory -Force -Path $agentTempFolderName | Out-Null
+    $agentPackagePath = Join-Path -Path $env:temp -ChildPath agent.zip
 
-    $agentPackagePath = "$agentTempFolderName\agent.zip"
     $serverUrl = "https://$VstsAccount.visualstudio.com"
     $vstsAgentUrl = "$serverUrl/_apis/distributedtask/packages/agent/win7-x64?`$top=1&api-version=3.0"
     $vstsUser = "AzureDevTestLabs"
